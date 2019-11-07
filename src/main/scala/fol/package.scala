@@ -6,9 +6,9 @@ package object fol {
   // Formulas
   // Any combination of boolean operators (does not have to be a tautology!)
   sealed abstract class Formula
-  final class Var[I] extends Formula
-  final class True extends Formula
-  final class False extends Formula
+  sealed class Var[I] extends Formula
+  type True = Var[true]
+  type False = Var[false]
   final class Not[P <: Formula] extends Formula
   final class And[P <: Formula, Q <: Formula] extends Formula
   final class Or[P <: Formula, Q <: Formula] extends Formula
