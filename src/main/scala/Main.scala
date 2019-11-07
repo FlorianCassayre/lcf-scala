@@ -1,11 +1,7 @@
-package fol
+import fol._ // Types, rules, axioms
+import fol.Theorems._ // Useful theorems
 
-import scala.language.implicitConversions
-import fol.Theorems._
-
-// Sandbox
-
-object FOL extends App {
+object Main extends App {
 
   // Formulas are represented as *types*, and theorems as *instances*
 
@@ -23,7 +19,7 @@ object FOL extends App {
   val fImpliesf: Theorem[False ->: False] = trueIff(truth) // Implicit modus ponens application
 
   // ~False
-  val nfalse: Theorem[~[False]] = iffSym(notIff[False])(fImpliesf) // Use previously
+  val nfalse: Theorem[~[False]] = iffSym(notIff[False])(fImpliesf) // Build proofs upon previous work
 
 
   // `null` values are normally prohibited (as well as exceptions and other constructs that bypass type checking)
